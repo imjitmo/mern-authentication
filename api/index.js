@@ -2,6 +2,9 @@ import dotenv from 'dotenv';
 import express from 'express';
 import mongoose from 'mongoose';
 
+//Route Imports
+import userRoutes from './routes/user.Routes.js';
+
 //dotenv config
 dotenv.config();
 
@@ -25,3 +28,5 @@ mongoose
 app.listen(process.env.PORT || port, () => {
   console.log(`API is now online on port: ${process.env.PORT || port}`);
 });
+
+app.use('/api/user', userRoutes);
