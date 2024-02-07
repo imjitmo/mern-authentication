@@ -1,15 +1,35 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 export default function Signup() {
+  const [formData, setFormData] = useState({});
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.id]: e.target.value });
+  };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const res = await fetch('/api/auth/signup', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    });
+    const data = await res.json();
+
+    console.log(data);
+  };
   return (
     <div className="p-3 max-w-lg mx-auto">
       <h1 className="text-3xl text-center font-semibold my-7">Sign Up</h1>
-      <form className="flex flex-col gap-4">
+      <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
         <input
           type="text"
           name="username"
           id="username"
           placeholder="Username"
           className="bg-slate-100 p-3 rounded-lg"
+          onChange={handleChange}
         />
         <input
           type="email"
@@ -17,6 +37,7 @@ export default function Signup() {
           id="email"
           placeholder="E-mail"
           className="bg-slate-100 p-3 rounded-lg"
+          onChange={handleChange}
         />
         <input
           type="password"
@@ -24,6 +45,7 @@ export default function Signup() {
           id="password"
           placeholder="Password"
           className="bg-slate-100 p-3 rounded-lg"
+          onChange={handleChange}
         />
         <button className="bg-slate-700 text-white p-3 rounded-lg uppercase hover:opacity-85 disabled:opacity-65">
           Sign Up
