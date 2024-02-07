@@ -3,6 +3,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 
 //Route Imports
+import authRoutes from './routes/auth.Routes.js';
 import userRoutes from './routes/user.Routes.js';
 
 //dotenv config
@@ -30,3 +31,4 @@ app.listen(process.env.PORT || port, () => {
 });
 
 app.use('/api/user', userRoutes);
+app.use('/api/auth', authRoutes);
