@@ -9,7 +9,9 @@ export default function Header() {
   const navToggle = (e) => {
     e.target.checked ? setShowNav(true) : setShowNav(false);
   };
+  const warning = 'Haha what are you doing? This is a console';
 
+  console.log(warning);
   return (
     <>
       <div className="bg-slate-600">

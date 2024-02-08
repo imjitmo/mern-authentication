@@ -5,8 +5,8 @@ import Header from './components/Header';
 import About from './pages/About';
 import Home from './pages/Home';
 import Profile from './pages/Profile';
-import Signin from './pages/signin';
-import Signup from './pages/signup';
+import Signin from './pages/Signin';
+import Signup from './pages/Signup';
 
 function App() {
   return (
