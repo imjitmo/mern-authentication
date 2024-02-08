@@ -38,6 +38,7 @@ export default function Signup() {
           placeholder="Username"
           className="bg-slate-100 p-3 rounded-lg"
           onChange={handleChange}
+          required
         />
         <input
           type="email"
@@ -46,6 +47,7 @@ export default function Signup() {
           placeholder="E-mail"
           className="bg-slate-100 p-3 rounded-lg"
           onChange={handleChange}
+          required
         />
         <input
           type="password"
@@ -54,6 +56,7 @@ export default function Signup() {
           placeholder="Password"
           className="bg-slate-100 p-3 rounded-lg"
           onChange={handleChange}
+          required
         />
         <button
           disabled={loading}
