@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 export default function Header() {
   const [showNav, setShowNav] = useState(false);
 
-  const navigationList = ['home', 'profile', 'about', 'sign-in', 'sign-up'];
+  const navigationList = ['home', 'profile', 'about', 'sign in', 'sign up'];
 
   const navToggle = (e) => {
     e.target.checked ? setShowNav(true) : setShowNav(false);

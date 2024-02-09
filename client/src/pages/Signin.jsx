@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 
 //redux imports
 import { useDispatch, useSelector } from 'react-redux';
+import OAuth from '../components/OAuth.jsx';
 import { signInFailure, signInStart, signInSuccess } from '../redux/user/user.slice.js';
 
 export default function Signin() {
@@ -63,6 +64,7 @@ export default function Signin() {
         >
           {loading ? <span className="loading loading-dots loading-xs"></span> : 'Sign In'}
         </button>
+        <OAuth nameType="Sign In" />
       </form>
       <div className="flex gap-2 mt-5">
         <p>Don&apos;t have an account?</p>
