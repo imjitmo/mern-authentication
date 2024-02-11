@@ -29,6 +29,7 @@ export default function Profile() {
       },
       (error) => {
         setUploadError(true);
+        console.log(error);
       },
       () => {
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) =>
