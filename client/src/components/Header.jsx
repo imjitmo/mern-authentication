@@ -1,7 +1,9 @@
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 export default function Header() {
+  const { currentUser } = useSelector((state) => state.user);
   const [showNav, setShowNav] = useState(false);
 
   const navigationList = ['home', 'profile', 'about', 'sign in', 'sign up'];
@@ -20,13 +22,44 @@ export default function Header() {
             <h1 className="font-bold">OAuth App</h1>
           </Link>
           <ul className="gap-4 hidden lg:flex">
-            {navigationList.map((navLink, i) => (
-              <Link key={i} to={'/' + navLink}>
-                <li className="capitalize" key={i}>
-                  {navLink}
+            <Link to="/">
+              <li className="capitalize">Home</li>
+            </Link>
+            <Link to="/about">
+              <li className="capitalize">About</li>
+            </Link>
+            {currentUser ? (
+              <>
+                <li className="dropdown">
+                  <img
+                    tabIndex={0}
+                    role="button"
+                    className="h-7 w-7 rounded-full object-cover dropdown"
+                    src={currentUser.profilePicture}
+                  />
+                  <ul
+                    tabIndex={0}
+                    className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
+                  >
+                    <li>
+                      <a>Item 1</a>
+                    </li>
+                    <li>
+                      <a>Item 2</a>
+                    </li>
+                  </ul>
                 </li>
-              </Link>
-            ))}
+              </>
+            ) : (
+              <>
+                <Link to="/sign-in">
+                  <li className="capitalize">Sign In</li>
+                </Link>
+                <Link to="/sign-up">
+                  <li className="capitalize">Sign Up</li>
+                </Link>
+              </>
+            )}
           </ul>
           <div className="lg:hidden">
             <label className="btn btn-circle bg-slate-600 border-0 swap swap-rotate">
