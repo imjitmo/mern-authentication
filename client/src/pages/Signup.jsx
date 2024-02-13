@@ -62,6 +62,11 @@ export default function Signup() {
           onChange={handleChange}
           required
         />
+        <select className="bg-slate-100 p-3 rounded-lg" name="" id="">
+          <option value="">--User Type--</option>
+          <option value="">Owner</option>
+          <option value="">Consumer</option>
+        </select>
         <button
           disabled={loading}
           className="bg-slate-700 text-white p-3 rounded-lg uppercase hover:opacity-85 disabled:opacity-65"
