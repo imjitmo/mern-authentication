@@ -6,6 +6,7 @@ import {
   deleteUserFailure,
   deleteUserStart,
   deleteUserSuccess,
+  signOut,
   updateUserFailure,
   updateUserStart,
   updateUserSuccess,
@@ -93,6 +94,16 @@ export default function Profile() {
       console.log(err);
     }
   };
+
+  const handleSignOut = async () => {
+    try {
+      const res = await fetch('/api/auth/signout');
+      dispatch(signOut());
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <div className="p-3 max-w-lg mx-auto">
       <h1 className="text-3xl font-semibold my-7 text-center">Profile</h1>
@@ -166,7 +177,9 @@ export default function Profile() {
         <span className="text-red-700 cursor-pointer" onClick={handleDeleteAccount}>
           Delete Account
         </span>
-        <span className="text-red-700 cursor-pointer">Sign out</span>
+        <span className="text-red-700 cursor-pointer" onClick={handleSignOut}>
+          Sign out
+        </span>
       </div>
     </div>
   );
