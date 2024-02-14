@@ -42,7 +42,9 @@ export default function Header() {
                     className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
                   >
                     <li>
-                      <a>Profile</a>
+                      <Link to="/profile">
+                        <span>Profile</span>
+                      </Link>
                     </li>
                     <li>
                       <a>Business</a>
